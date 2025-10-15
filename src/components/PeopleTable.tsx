@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { Person } from '../types';
 
 import cn from 'classnames';
@@ -40,12 +40,7 @@ export const PeopleTable: React.FC<Props> = ({ people }) => {
               })}
             >
               <td>
-                <Link
-                  to={`/people/${person.slug}`}
-                  className={cn({ 'has-text-danger': person.sex === 'f' })}
-                >
-                  {person.name}
-                </Link>
+                <PersonLink personName={person.name} people={people} />
               </td>
 
               <td>{person.sex}</td>
